@@ -1,0 +1,29 @@
+body{
+   background-color: red;
+}
+#gameField{
+   background-color: blue;
+   position: relative;
+   display: inline-block;
+   height: 480px;
+   width: 640px;
+   margin-left: 5px;
+   margin-top: 5px;
+   text-align: center;
+}
+.celNul{
+   background-color: gray;
+   height: 48px;
+   width: 64px;
+}
+.celX{
+   background-color: green;
+   height: 48px;
+   width: 64px;
+}
+.celY{
+   background-color: yellow;
+   height: 48px;
+   width: 64px;
+}
+
