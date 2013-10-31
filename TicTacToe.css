@@ -15,15 +15,24 @@ body{
    background-color: gray;
    height: 48px;
    width: 64px;
+   float: left;
 }
-.celX{
+.cel0{
    background-color: green;
    height: 48px;
    width: 64px;
+   float: left;
 }
-.celY{
+.cel1{
    background-color: yellow;
    height: 48px;
    width: 64px;
+   float: left;
+}
+.wall{
+   background-color: black;
+   height: 0px;
+   width: 0px;
+   clear: both;
 }
 
