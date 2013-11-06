@@ -5,8 +5,8 @@ body{
    background-color: blue;
    position: relative;
    display: inline-block;
-   height: 480px;
-   width: 640px;
+   height: 960px;
+   width: 1280px;
    margin-left: 5px;
    margin-top: 5px;
    text-align: center;
@@ -15,18 +15,28 @@ body{
    background-color: gray;
    height: 48px;
    width: 64px;
+   margin: 5px;
    float: left;
 }
 .cel0{
    background-color: green;
    height: 48px;
    width: 64px;
+   margin: 5px;
    float: left;
 }
 .cel1{
    background-color: yellow;
    height: 48px;
    width: 64px;
+   margin: 5px;
+   float: left;
+}
+.cel2{
+   background-color: blue;
+   height: 48px;
+   width: 64px;
+   margin: 5px;
    float: left;
 }
 .wall{
