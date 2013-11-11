@@ -7,13 +7,13 @@ function tGame(width, numberOfPlayers){
    var gField = [];
    var curPl = 0;
    var initChar = "n";
-//init field
+//init field method
    this.initField = function(){
       for (var i=0; i<widthField*widthField; i++){
          gField[i] = initChar;
       }
    }
-//switch player
+//switch player method
    this.nextPlayer = function(){
       if (curPl == nPl){
          curPl = 0;
@@ -23,44 +23,46 @@ function tGame(width, numberOfPlayers){
       }
       return curPl;
    }
-//check win
+//check win method
    this.checkWinner = function(){
       var res = false;
-      var curStr = 1;
       var checkCell = function(ind1, ind2, ind3){
          return gField[ind1] == gField[ind2] && gField[ind2] == gField[ind3] && gField[ind2] != initChar
       };
       // check first line
       for(var i = 1; i < widthField-1; i++){
-            res = checkCell(i-1, i, i+1);
+         if (checkCell(i-1, i, i+1)){
+            res = true;
+         };
       };
+      var curStr = 1;
       while(!res && curStr < (widthField-1)){
          // check first column
          if (checkCell(widthField*curStr-widthField, widthField*curStr, widthField*curStr+widthField)){
          res = true;
          };
-         for(var i = widthField*curStr+1; i < widthField*(widthField-1); i++){
+         for(var i = widthField*curStr+1; i < (widthField*curStr+widthField)-1; i++){
             // check middle lines
-            if (checkCell(i-1, i, i+1)) {res = true};
+            if (checkCell(i-1, i, i+1)) {res = true;};
             // check middle column
-            if (checkCell(i-widthField, i, i+widthField)){res = true};
+            if (checkCell(i-widthField, i, i+widthField)){res = true;};
             // check fist diagonal
-            if (checkCell(i-widthField-1, i, i+widthField+1)){res = true};
+            if (checkCell(i-widthField-1, i, i+widthField+1)){res = true;};
             // check last diagonal
-            if (checkCell(i-widthField+1, i, i+widthField-1)){res = true};
+            if (checkCell(i-widthField+1, i, i+widthField-1)){res = true;};
          };
          // check last column
-         if (checkCell(widthField*curStr-1, widthField*curStr+widthField-1, widthField*curStr+widthField*2-1)){res = true};
+         if (checkCell(widthField*curStr-1, widthField*curStr+widthField-1, widthField*curStr+widthField*2-1)){res = true;};
          // next line
          curStr++;
       };
       // check last line
       for(var i = widthField*(widthField-1)+1; i < widthField*widthField; i++){
-         if (checkCell(i-1, i, i+1)){res = true};
+         if (checkCell(i-1, i, i+1)){res = true;};
       };
       return res;
    }
-//set current cell
+//set current cell method
    this.setCell = function(index){
       var res = false;
       if (gField[index] == initChar){
@@ -71,7 +73,7 @@ function tGame(width, numberOfPlayers){
    }
 };
 // grafic user interface level
-// init
+// init procedure
 function initGameField(numOfCells){
    var pole = document.getElementById('gameField');         
    var gField = document.createElement('div');
@@ -89,6 +91,7 @@ function initGameField(numOfCells){
       gField.appendChild(wall);
    };
 };
+// deinit
 function resetGameField(){
    var pole = document.getElementById('gameField');  
    pole.removeChild(pole.getElementsByTagName('*')[0]);
@@ -99,9 +102,8 @@ function getMove(){
       this.className = "cel" + curGame.nextPlayer();
       if (curGame.checkWinner()){
          var plr = "nobody";
-         if (this.className == "cel0"){plr = "X";};
-         if (this.className == "cel1"){plr = "O";};
-         if (this.className == "cel2"){plr = "Z";};
+         if (this.className == "cel0"){plr = "O";};
+         if (this.className == "cel1"){plr = "X";};
          alert(plr + ", you win");
          curGame.initField();
          resetGameField();
@@ -109,13 +111,9 @@ function getMove(){
       };
    };
 };
-function makeGame(){
-   var q = document.getElementsByTagName('input');
-   alert(q[0].name);
-};
 // create obj
-var numOfPlayers = 3;
-var numOfCells = 10;
+var numOfPlayers = 2;
+var numOfCells = 3;
 
 var curGame = new tGame(numOfCells, numOfPlayers);
 curGame.initField();

@@ -32,13 +32,6 @@ body{
    margin: 5px;
    float: left;
 }
-.cel2{
-   background-color: blue;
-   height: 48px;
-   width: 64px;
-   margin: 5px;
-   float: left;
-}
 .wall{
    background-color: black;
    height: 0px;
