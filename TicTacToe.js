@@ -100,11 +100,18 @@ function resetGameField(){
 function getMove(){   
    if (curGame.setCell(this.getAttribute('celNum'))){
       this.className = "cel" + curGame.nextPlayer();
-      if (curGame.checkWinner()){
+      moveCount++;
+	  if (curGame.checkWinner()){
          var plr = "nobody";
          if (this.className == "cel0"){plr = "O";};
          if (this.className == "cel1"){plr = "X";};
          alert(plr + ", you win");
+         curGame.initField();
+         resetGameField();
+         initGameField(numOfCells);
+      };
+      if (moveCount > 8){
+         alert("draw!");
          curGame.initField();
          resetGameField();
          initGameField(numOfCells);
@@ -114,6 +121,7 @@ function getMove(){
 // create obj
 var numOfPlayers = 2;
 var numOfCells = 3;
+var moveCount = 0;
 
 var curGame = new tGame(numOfCells, numOfPlayers);
 curGame.initField();

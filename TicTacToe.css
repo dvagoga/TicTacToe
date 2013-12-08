@@ -1,32 +1,30 @@
-body{
-   background-color: red;
-}
 #gameField{
-   background-color: blue;
+   background-color: #808080;
    position: relative;
    display: inline-block;
-   height: 960px;
-   width: 1280px;
+   width: 222px;
+   height: 174px;
    margin-left: 5px;
    margin-top: 5px;
+   padding: 5px;
    text-align: center;
 }
 .celNul{
-   background-color: gray;
-   height: 48px;
+   background-color: #C0C0C0;
    width: 64px;
+   height: 48px;
    margin: 5px;
    float: left;
 }
 .cel0{
-   background-color: green;
+   background-color: #009900;
    height: 48px;
    width: 64px;
    margin: 5px;
    float: left;
 }
 .cel1{
-   background-color: yellow;
+   background-color: #FF9900;
    height: 48px;
    width: 64px;
    margin: 5px;
